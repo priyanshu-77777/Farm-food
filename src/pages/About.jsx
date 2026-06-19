@@ -1,3 +1,4 @@
+
 import "./About.css";
 
 function About() {
@@ -55,7 +56,7 @@ function About() {
           <li>Healthy food products</li>
         </ul>
       </div>
-
+     
     </div>
   );
 }

@@ -1,6 +1,7 @@
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
+import Footer from "./Components/Footer";
 
 import Home from "./pages/Home";
 import Products from "./pages/Products";
@@ -21,6 +22,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/recommendation" element={<Recommendation />} />
       </Routes>
+
+      <Footer />
     </BrowserRouter>
   );
 }

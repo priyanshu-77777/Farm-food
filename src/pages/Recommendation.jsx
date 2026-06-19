@@ -1,3 +1,4 @@
+
 import "./Recommendation.css";
 import { useState } from "react";
 
@@ -58,6 +59,7 @@ function Recommendation() {
           <div key={index} className="recommendation-item">✓ {item}</div>
         ))}
       </div>
+    
     </div>
   );
 }

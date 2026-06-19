@@ -1,3 +1,4 @@
+
 import "./Register.css";
 
 function Register() {
@@ -31,6 +32,7 @@ function Register() {
                     </button>
                 </form>
             </div>
+           
         </div>
     );
 }

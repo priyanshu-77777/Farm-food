@@ -1,6 +1,8 @@
+
 import "./Products.css";
 import { useState } from "react";
 import ProductCard from "../Components/ProductCard";
+
 
 import milletCookies from "../assets/millet-cookies.jpg";
 import appleJuice from "../assets/apple-juice.jpg";
@@ -62,7 +64,7 @@ function Products() {
           />
         ))}
       </div>
-
+     
     </div>
   );
 }
