@@ -1,8 +1,21 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const mongoose = require("mongoose");
+
+const verifyToken = require("./middleware/authMiddleware");
+
+const authRoutes = require("./routes/authRoutes");
 
 dotenv.config();
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => {
+    console.log("MongoDB connected");
+  })
+  .catch((error) => {
+    console.error("MongoDB connection error:", error.message);
+  });
 
 const app = express();
 
@@ -11,6 +24,7 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use("/api/auth", authRoutes);
 
 // In-memory product data
 let products = [
@@ -150,6 +164,13 @@ app.delete("/api/products/:id", (req, res) => {
   products.splice(productIndex, 1);
 
   res.status(204).send();
+});
+
+app.get("/api/protected", verifyToken, (req, res) => {
+  res.status(200).json({
+    message: "You accessed a protected route!",
+    user: req.user
+  });
 });
 
 // Error handling middleware
